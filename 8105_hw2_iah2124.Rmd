@@ -43,3 +43,14 @@ trans_ent |>
 
 There are 465 distinct stations. 
 
+How many stations are ADA compliant?
+```{r}
+trans_ent |> 
+  filter(ada == TRUE) |> 
+  select(station_name, line) |> 
+  distinct()
+```
+
+84 stations are ADA complicit. 
+
+
