@@ -34,3 +34,12 @@ dim(trans_ent)
 ```
 This data set contains the variables: line, station name, station latitude, station longitude, routes, entry, exit only, vending, entrance type, and ada compliance. Cleaned the data by reading the file and using janitor to keep the variables needed, and change the names accordingly. The dimensions of this data set are 1868 x 20. This data is not considered "tidy". This is because route number should be a variable, as should route. That is, to obtain a tidy data set we would need to convert `route` variables from wide to long format. 
 
+How many distinct stations are there?
+```{r}
+trans_ent |> 
+  select(station_name, line) |> 
+  distinct()
+```
+
+There are 465 distinct stations. 
+
