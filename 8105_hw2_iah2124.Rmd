@@ -61,4 +61,25 @@ trans_ent |>
   mean()
 ```
 
-37.71% of station enterances / exits without vending allow entrance. 
+37.71% of station enterances / exits without vending allow entrance.
+
+```{r}
+trans_ent |> 
+  pivot_longer(
+    route1:route11,
+    names_to = "route_num",
+    values_to = "route") |> 
+  filter(route == "A") |> 
+  select(station_name, line) |> 
+  distinct()
+
+trans_ent |> 
+  pivot_longer(
+    route1:route11,
+    names_to = "route_num",
+    values_to = "route") |> 
+  filter(route == "A", ada == TRUE) |> 
+  select(station_name, line) |> 
+  distinct()
+```
+60 stations service the A train, 17 of them being ADA compliant. 
